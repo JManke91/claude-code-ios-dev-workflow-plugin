@@ -92,19 +92,22 @@ cd ~/.claude-plugins/ios-dev-workflow && git pull
 ```
 /plugin install https://github.com/JManke91/claude-code-ios-dev-workflow-plugin
 ```
-This clones and registers the plugin automatically.
+This clones and registers the plugin automatically:
+1. Claude code clones the repository to a cache directory (~/.claude/plugins/cache)
+2. The plugin is registered in your settings (by default at user scope, meaning it works accross all projects)
+3. Commands become immediately available with the namespace prefix (e.g. /ios-dev-workflow:ticket)
 
-### Add to project's .claude/plugins.json
-```json
-In any project where you want the plugin available, create .claude/plugins.json:
+### Keeping the Plugin Updated
 
-  {
-    "plugins": [
-      {
-        "repository": "https://github.com/JManke91/claude-code-ios-dev-workflow-plugin"
-      }
-    ]
-  }
+  After installation, enable auto-update to receive updates automatically:
+  1. Run `/plugin`
+  2. Go to **Marketplaces** tab
+  3. Select **ios-dev-workflow**
+  4. Choose **Enable auto-update**
+
+Or manually update anytime with:
+```
+/plugin marketplace update ios-dev-workflow
 ```
 
 ## Customization
