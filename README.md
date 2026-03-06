@@ -78,12 +78,33 @@ For best results, your project should have:
 
 ### Local Testing
 ```bash
-claude --plugin-dir ./ios-dev-workflow-plugin
+# Clone the plugin to a central location (one-time setup)
+git clone git@github.com:JManke91/claude-code-ios-dev-workflow-plugin.git ~/.claude-plugins/ios-dev-workflow
+
+# Use from any project
+claude --plugin-dir ~/.claude-plugins/ios-dev-workflow
+
+To update the plugin later:
+cd ~/.claude-plugins/ios-dev-workflow && git pull
 ```
 
-### From Marketplace (when published)
+### Via plugin command
 ```
-/plugin install ios-dev-workflow
+/plugin install https://github.com/JManke91/claude-code-ios-dev-workflow-plugin
+```
+This clones and registers the plugin automatically.
+
+### Add to project's .claude/plugins.json
+```json
+In any project where you want the plugin available, create .claude/plugins.json:
+
+  {
+    "plugins": [
+      {
+        "repository": "https://github.com/JManke91/claude-code-ios-dev-workflow-plugin"
+      }
+    ]
+  }
 ```
 
 ## Customization
